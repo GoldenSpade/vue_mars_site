@@ -1,0 +1,26 @@
+@import './resets';
+@import './fonts';
+@import './blocks/header';
+@import './blocks/nav';
+@import './blocks/switch-lang';
+
+* {
+  box-sizing: border-box;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #212121;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 20px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

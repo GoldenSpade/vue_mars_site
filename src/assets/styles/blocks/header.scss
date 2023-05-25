@@ -1,0 +1,40 @@
+.header {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    min-height: 100vh;
+    min-width: 100vw;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  &__title {
+    font-family: 'PoppinsBold', sans-serif;
+    text-align: center;
+    font-size: 100px;
+    padding-bottom: 40px;
+  }
+  &__subtitle {
+    font-family: 'PoppinsRegular', sans-serif;
+    text-align: center;
+    font-size: 40px;
+  }
+  &__video {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+    transform: scale(120%);
+    z-index: 0;
+  }
+}

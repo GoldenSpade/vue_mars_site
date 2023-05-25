@@ -1,0 +1,14 @@
+.switch-lang {
+  color: #fff;
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 16px;
+  background: #000;
+  border: none;
+  &__item:active {
+    // color: #fff;
+    // color: #fff;
+    // font-family: 'PoppinsBold', sans-serif;
+    // font-size: 18px;
+    background-color: red;
+  }
+}
