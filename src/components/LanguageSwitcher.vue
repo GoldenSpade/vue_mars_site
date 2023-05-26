@@ -1,11 +1,11 @@
 <template>
-  <select @change="switchLanguage" class="switch-lang">
+  <select @change="switchLanguage" class="select">
     <option
       v-for="sLocale in supportedLocales"
       :key="`locale-${sLocale}`"
       :value="sLocale"
       :selected="locale === sLocale"
-      class="switch-lang__item"
+      class="select__option"
     >
       {{ t(`locale.${sLocale}`) }}
     </option>

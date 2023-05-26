@@ -1,7 +1,11 @@
 {
   "locale": {
-    "en": "Английский",
-    "ru": "Русский"
+    "en": "En",
+    "ru": "Ru"
+  },
+  "header": {
+    "title": "Снимки Марса",
+    "subTitle": "С марсохода Curiosity"
   },
   "nav": {
     "home": "Главная",
