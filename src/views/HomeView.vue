@@ -1,88 +1,34 @@
 <template>
   <div class="home">
-    <!-- <Nav /> -->
     <Header />
     <Filter />
-    <main>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus enim
-      beatae suscipit! Sapiente repellat nostrum officiis minima, ea, fugiat
-      labore illo magni debitis odit aliquid possimus dolores modi maiores quam!
-    </main>
+    <ItemsAmount />
+    <Pagination />
+    <MainContent />
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue'
 import Filter from '../components/Filter.vue'
+import ItemsAmount from '../components/ItemsAmount.vue'
+import Pagination from '../components/Pagination.vue'
+import MainContent from '../components/MainContent.vue'
 
 export default {
   components: {
     Header,
-    Filter
+    Filter,
+    ItemsAmount,
+    Pagination,
+    MainContent
   }
 }
 </script>
 
-<style scoped>
-  main {
-    font-size: 18px;
-      font-family: 'PoppinsRegular', sans-serif;
-  }
+<style>
+main {
+  font-size: 18px;
+  font-family: 'PoppinsRegular', sans-serif;
+}
 </style>

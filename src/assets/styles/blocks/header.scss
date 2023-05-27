@@ -20,19 +20,19 @@
     color: #fff;
   }
   &__title {
-    font-family: 'PoppinsBold', sans-serif;
+    font-family: 'PoppinsBold', 'RobotoBold', sans-serif;
     text-align: center;
     font-size: 100px;
     padding-bottom: 40px;
-    margin-bottom: 12px;
     @media (max-width: 975px) {
-       font-size: 70px;
-     }
+      font-size: 70px;
+    }
   }
   &__subtitle {
-    font-family: 'PoppinsRegular', sans-serif;
+    font-family: 'PoppinsRegular', 'RobotoRegular', sans-serif;
     text-align: center;
     font-size: 40px;
+    line-height: 50px;
   }
   &__video {
     min-height: 100vh;

@@ -6,7 +6,10 @@
           class="button"
           :text="showFilterBlock ? 'Hide filters' : 'Show filters'"
           @event="handleChangeFilter"
-        />
+        >
+          <BaseIcon iconName="menu" v-if="!showFilterBlock" />
+          <BaseIcon iconName="close" v-else />
+        </Button>
       </div>
       <div class="filter__wrap" v-show="showFilterBlock">
         <div
@@ -23,21 +26,12 @@
             class="filter__item--mb filter__item--mr"
           />
 
-          <select class="select select--nav">
-            <option
-              v-for="(option, idx) in cameraNames"
-              :key="idx"
-              :value="option"
-              :selected="option === cameraNames[0]"
-              :disabled="option === cameraNames[0]"
-              class="select__option"
-            >
-              {{ option }}
-            </option>
-          </select>
+          <Select :items="cameraNames" />
         </form>
         <div class="filter__item filter__item--mb-none">
-          <Button class="button" text="Find image" />
+          <Button text="Find image">
+            <BaseIcon iconName="find" />
+          </Button>
         </div>
       </div>
     </div>
@@ -45,14 +39,18 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import Datepicker from '@vuepic/vue-datepicker'
 import Button from './Button.vue'
+import BaseIcon from './BaseIcon.vue'
+import Select from './Select.vue'
 
 export default {
   components: {
     Datepicker,
-    Button
+    Button,
+    BaseIcon,
+    Select
   },
   setup () {
     const cameraNames = ref(['Camera name', 'camera 1', 'camera 2', 'camera 3'])
@@ -74,10 +72,16 @@ export default {
 
     const handleChangeFilter = e => {
       showFilterBlock.value = !showFilterBlock.value
-      console.log(e)
     }
 
-    onMounted(() => window.addEventListener('resize', updateWindowWidth))
+    onMounted(() => {
+      updateWindowWidth()
+      window.addEventListener('resize', updateWindowWidth)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', updateWindowWidth)
+    })
 
     return {
       cameraNames,

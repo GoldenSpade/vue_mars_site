@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory, RouterView } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Tr from "@/i18n/translation"
+import About from '../views/AboutView.vue'
+import Tr from '@/i18n/translation'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes: [
     {
-      path: "/:locale?",
+      path: '/:locale?',
       component: RouterView,
       beforeEnter: Tr.routeMiddleware,
       children: [
@@ -18,7 +19,7 @@ const router = createRouter({
         {
           path: 'about',
           name: 'about',
-          component: () => import('../views/AboutView.vue')
+          component: About
         }
       ]
     }

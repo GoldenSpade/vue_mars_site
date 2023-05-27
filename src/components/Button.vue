@@ -1,10 +1,16 @@
 <template>
-  <button class="button" @click="clickButton">{{ text }}</button>
+  <button class="button" @click="clickButton">
+    <span class="button__text">{{ text }} </span>
+    <slot></slot>
+  </button>
 </template>
 
 <script>
+import BaseIcon from './BaseIcon.vue'
+
 export default {
-  props: ['text'],
+  components: { BaseIcon },
+  props: ['text', 'iconName'],
   emits: ['event'],
 
   setup (_, { emit }) {

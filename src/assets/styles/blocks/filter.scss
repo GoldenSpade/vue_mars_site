@@ -3,23 +3,22 @@
   padding: 15px 0;
   position: sticky;
   top: 68px;
-  &__button-wrap {
-    display: flex;
-    justify-content: center;
-  }
   &__wrap {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    // padding-top: 20px;
     @media (max-width: 975px) {
       flex-direction: column;
     }
   }
+  &__button-wrap {
+    display: flex;
+    justify-content: center;
+  }
   &__item {
     display: flex;
     color: #fff;
-    font-family: 'PoppinsBold', sans-serif;
+    font-family: 'PoppinsBold', 'RobotoBold', sans-serif;
     font-size: 24px;
     letter-spacing: 1px;
     @media (max-width: 975px) {

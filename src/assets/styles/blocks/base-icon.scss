@@ -1,0 +1,10 @@
+.ico {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.4s;
+  margin-left: 10px;
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}

@@ -1,7 +1,25 @@
 <template>
   <div>
-    <h1>{{ $t("about.header") }}</h1>
-
-    <p>{{ $t("about.donations") }}</p>
+    <RouterLink :to="{ name: 'about' }">Link to about</RouterLink>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
+    <h1>About</h1>
   </div>
 </template>
+
+<style>
+h1 {
+  color: #000;
+}
+</style>
+
