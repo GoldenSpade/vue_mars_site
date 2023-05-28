@@ -1,0 +1,14 @@
+.social-links {
+  display: flex;
+  &--ml-none {
+    margin-left: 0;
+  }
+
+  & .ico svg {
+    opacity: 0.3;
+    transition: opacity 600ms;
+  }
+  & .ico svg:hover {
+    opacity: 0.7;
+  }
+}

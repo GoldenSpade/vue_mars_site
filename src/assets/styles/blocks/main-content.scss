@@ -1,8 +1,11 @@
 .main-content {
   &__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(375px, 1fr)); /* see notes below */
+    grid-gap: 1em;
+    margin: 20px 0;
+    @media (max-width: 400px) {
+      display: block;
+    }
   }
 }

@@ -1,25 +1,78 @@
 .image-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  margin-bottom: 70px;
   max-width: 375px;
-  &:nth-child(3n) {
-    margin-right: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  @media (max-width: 1190px) {
+    max-width: none;
+    min-width: 100%;
+    flex: 0 1 50%;
+    min-width: 100%;
   }
-
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 400px) {
+    margin-bottom: 20px;
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__front-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: rgba(83, 103, 248, 0.7);
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transform: translateY(102%);
+    transition: transform 600ms;
+  }
+  &__front-bg--hover {
+    transform: translateY(0%);
+  }
+  &__icon-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 600ms;
+  }
+  &__icon-bg--hover {
+    opacity: 0.5;
+  }
   &__image {
-    width: 375px;
+    max-width: 100%;
+    border-radius: 10px 10px 0 0;
+    @media (max-width: 1190px) {
+      min-width: 100%;
+    }
   }
   &__text {
     font-family: 'PoppinsRegular', 'RobotoRegular', sans-serif;
     font-size: 20px;
-    padding: 30px 0;
+    line-height: 24px;
+    padding: 30px 15px;
     background: #dfdfdf;
-    min-width: 100%;
     word-wrap: break-word;
     text-align: center;
+    border-radius: 0 0 10px 10px;
+    @media (max-width: 1190px) {
+      min-width: 100%;
+    }
   }
 }

@@ -5,6 +5,8 @@
     <ItemsAmount />
     <Pagination />
     <MainContent />
+    <Pagination />
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +16,7 @@ import Filter from '../components/Filter.vue'
 import ItemsAmount from '../components/ItemsAmount.vue'
 import Pagination from '../components/Pagination.vue'
 import MainContent from '../components/MainContent.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
   components: {
@@ -21,7 +24,8 @@ export default {
     Filter,
     ItemsAmount,
     Pagination,
-    MainContent
+    MainContent,
+    Footer
   }
 }
 </script>

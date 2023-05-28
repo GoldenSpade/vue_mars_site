@@ -3,6 +3,7 @@
   padding: 15px 0;
   position: sticky;
   top: 68px;
+  z-index: 2;
   &__wrap {
     display: flex;
     justify-content: space-between;

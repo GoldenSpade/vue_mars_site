@@ -4,7 +4,7 @@
       <div class="filter__button-wrap" v-show="showFilterBtn">
         <Button
           class="button"
-          :text="showFilterBlock ? 'Hide filters' : 'Show filters'"
+          :text="showFilterBlock ? $t('filter.showFilters.hide') : $t('filter.showFilters.show')"
           @event="handleChangeFilter"
         >
           <BaseIcon iconName="menu" v-if="!showFilterBlock" />
@@ -23,13 +23,17 @@
             v-model="date"
             :clearable="false"
             :enableTimePicker="false"
+            :format="dateFormat"
             class="filter__item--mb filter__item--mr"
+            locale="ru"
+            selectText="Выбрать"
+            cancelText="Отмена"
           />
 
           <Select :items="cameraNames" />
         </form>
         <div class="filter__item filter__item--mb-none">
-          <Button text="Find image">
+          <Button :text="$t('filter.filterButton')">
             <BaseIcon iconName="find" />
           </Button>
         </div>
@@ -39,7 +43,7 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import Datepicker from '@vuepic/vue-datepicker'
 import Button from './Button.vue'
 import BaseIcon from './BaseIcon.vue'
@@ -59,6 +63,14 @@ export default {
     const showFilterBlock = ref(true)
     const windowWidth = ref(0)
 
+    const dateFormat = computed(() => {
+      const day = date.value.getDate()
+      const month = date.value.getMonth() + 1
+      const year = date.value.getFullYear()
+
+      return `${day}/${month}/${year}`
+    })
+
     const updateWindowWidth = () => {
       windowWidth.value = window.innerWidth
       if (windowWidth.value <= 975) {
@@ -70,7 +82,7 @@ export default {
       }
     }
 
-    const handleChangeFilter = e => {
+    const handleChangeFilter = () => {
       showFilterBlock.value = !showFilterBlock.value
     }
 
@@ -88,6 +100,7 @@ export default {
       date,
       showFilterBtn,
       showFilterBlock,
+      dateFormat,
       windowWidth,
       updateWindowWidth,
       handleChangeFilter

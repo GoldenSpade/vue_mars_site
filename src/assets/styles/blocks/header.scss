@@ -23,7 +23,7 @@
     font-family: 'PoppinsBold', 'RobotoBold', sans-serif;
     text-align: center;
     font-size: 100px;
-    padding-bottom: 40px;
+    padding: 0 15px 40px;
     @media (max-width: 975px) {
       font-size: 70px;
     }
@@ -33,6 +33,9 @@
     text-align: center;
     font-size: 40px;
     line-height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 15px;
   }
   &__video {
     min-height: 100vh;

@@ -19,5 +19,27 @@
   "about": {
     "header": "About us",
     "donations": "Donations raised: {donations}"
+  },
+  "filter": {
+    "showFilters": {
+      "show": "Show filters",
+      "hide": "Hide filters"
+    },
+    "filterBy": "Filter Images by:",
+    "cameraName": "Camera name",
+    "filterButton": "Find images"
+  },
+  "footer": {
+    "text": "The NASA Hubble Space Telescope is a project of international cooperation between NASA and ESA. AURA's Space Telescope Science Institute in Baltimore, Maryland, conducts Hubble science operations.",
+    "links-1": {
+      "about": " About Us",
+      "glossary": " Glossary",
+      "copyright": " Copyright"
+    },
+    "links-2": {
+      "contacs": " Contact Us",
+      "privacy": " Privacy Policy",
+      "sitemap": " Sitemap"
+    }
   }
 }
