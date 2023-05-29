@@ -3,9 +3,9 @@
     <Header />
     <Filter />
     <ItemsAmount />
-    <Pagination />
+    <Pagination v-show="marsImagesStore.isLoad" />
     <MainContent />
-    <Pagination />
+    <Pagination v-show="marsImagesStore.isLoad" />
     <Footer />
   </div>
 </template>
@@ -17,6 +17,7 @@ import ItemsAmount from '../components/ItemsAmount.vue'
 import Pagination from '../components/Pagination.vue'
 import MainContent from '../components/MainContent.vue'
 import Footer from '../components/Footer.vue'
+import { useMarsImages } from '../stores/marsImages'
 
 export default {
   components: {
@@ -26,6 +27,14 @@ export default {
     Pagination,
     MainContent,
     Footer
+  },
+
+  setup () {
+    const marsImagesStore = useMarsImages()
+
+    return {
+      marsImagesStore
+    }
   }
 }
 </script>

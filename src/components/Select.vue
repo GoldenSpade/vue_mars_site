@@ -5,7 +5,6 @@
       :key="idx"
       :value="option"
       :selected="option === items[0]"
-      :disabled="option === items[0]"
       class="select__option"
     >
       {{ option }}

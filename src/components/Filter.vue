@@ -4,7 +4,11 @@
       <div class="filter__button-wrap" v-show="showFilterBtn">
         <Button
           class="button"
-          :text="showFilterBlock ? $t('filter.showFilters.hide') : $t('filter.showFilters.show')"
+          :text="
+            showFilterBlock
+              ? $t('filter.showFilters.hide')
+              : $t('filter.showFilters.show')
+          "
           @event="handleChangeFilter"
         >
           <BaseIcon iconName="menu" v-if="!showFilterBlock" />
@@ -20,20 +24,20 @@
         </div>
         <form class="filter__item">
           <Datepicker
-            v-model="date"
+            v-model="calendarDataStore.date"
+            :format="calendarDataStore.previewdDate"
             :clearable="false"
             :enableTimePicker="false"
-            :format="dateFormat"
             class="filter__item--mb filter__item--mr"
             locale="ru"
             selectText="Выбрать"
             cancelText="Отмена"
           />
 
-          <Select :items="cameraNames" />
+          <Select :items="marsImagesStore.camNames" />
         </form>
         <div class="filter__item filter__item--mb-none">
-          <Button :text="$t('filter.filterButton')">
+          <Button :text="$t('filter.filterButton')" @click="loadPhotos">
             <BaseIcon iconName="find" />
           </Button>
         </div>
@@ -44,6 +48,8 @@
 
 <script>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useMarsImages } from '../stores/marsImages'
+import { useCalendarData } from '../stores/calendarData'
 import Datepicker from '@vuepic/vue-datepicker'
 import Button from './Button.vue'
 import BaseIcon from './BaseIcon.vue'
@@ -57,11 +63,15 @@ export default {
     Select
   },
   setup () {
-    const cameraNames = ref(['Camera name', 'camera 1', 'camera 2', 'camera 3'])
     const date = ref(new Date())
     const showFilterBtn = ref(false)
     const showFilterBlock = ref(true)
     const windowWidth = ref(0)
+
+    const marsImagesStore = useMarsImages()
+    const calendarDataStore = useCalendarData()
+
+    const cameraNames = ref(['Camera name', 'camera 1', 'camera 2', 'camera 3'])
 
     const dateFormat = computed(() => {
       const day = date.value.getDate()
@@ -95,6 +105,11 @@ export default {
       window.removeEventListener('resize', updateWindowWidth)
     })
 
+    const loadPhotos = async () => {
+      await marsImagesStore.load()
+      calendarDataStore.isFindUsed = true
+    }
+
     return {
       cameraNames,
       date,
@@ -102,8 +117,11 @@ export default {
       showFilterBlock,
       dateFormat,
       windowWidth,
+      marsImagesStore,
+      calendarDataStore,
       updateWindowWidth,
-      handleChangeFilter
+      handleChangeFilter,
+      loadPhotos
     }
   }
 }

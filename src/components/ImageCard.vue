@@ -5,16 +5,12 @@
     @mouseout="isHovering = false"
   >
     <div class="image-card__wrap">
-      <img
-        class="image-card__image"
-        :src="`https://picsum.photos/seed/image${cardNumber}/720/404`"
-        alt="Photo"
-      />
+      <img class="image-card__image" :src="imageItem.img_src" alt="Photo" />
       <p class="image-card__text">
-        {{ cardNumber }}. Front Hazard Avoidance Camera Front Hazard...
+        {{ cardNumber }}. {{ imageItem.camera.full_name }}
       </p>
     </div>
-    
+
     <div
       class="image-card__icon-bg"
       :class="{ 'image-card__icon-bg--hover': isHovering }"
@@ -33,7 +29,7 @@ import { ref } from 'vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
-  props: ['cardNumber'],
+  props: ['cardNumber', 'imageItem'],
   components: { BaseIcon },
 
   setup () {

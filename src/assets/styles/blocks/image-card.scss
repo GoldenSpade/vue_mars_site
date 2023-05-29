@@ -18,8 +18,9 @@
   &__wrap {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    min-height: 100%;
   }
   &__front-bg {
     position: absolute;
@@ -58,6 +59,8 @@
   &__image {
     max-width: 100%;
     border-radius: 10px 10px 0 0;
+    flex-grow: 1;
+
     @media (max-width: 1190px) {
       min-width: 100%;
     }
@@ -66,11 +69,17 @@
     font-family: 'PoppinsRegular', 'RobotoRegular', sans-serif;
     font-size: 20px;
     line-height: 24px;
-    padding: 30px 15px;
+    padding: 0 15px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #dfdfdf;
     word-wrap: break-word;
     text-align: center;
     border-radius: 0 0 10px 10px;
+    min-width: 100%;
+
     @media (max-width: 1190px) {
       min-width: 100%;
     }
