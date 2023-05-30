@@ -1,14 +1,15 @@
 <template>
   <main class="main-content">
     <div class="container">
-      <div class="main-content__wrap">
+      <div class="main-content__wrap" v-if="marsImagesStore.imagesLength > 0">
         <ImageCard
-          v-for="(item, idx) in marsImagesStore.images"
-          :key="idx"
-          :cardNumber="idx + 1"
+          v-for="item in marsImagesStore.paginatedImages"
+          :key="item.id"
+          :cardId="item.id"
           :imageItem="item"
         />
       </div>
+      <Loader v-else/>
     </div>
   </main>
 </template>
@@ -17,16 +18,19 @@
 import { onMounted } from 'vue'
 import ImageCard from './ImageCard.vue'
 import { useMarsImages } from '../stores/marsImages'
+import Loader from './Loader.vue'
 
 export default {
-  components: { ImageCard },
+  components: {
+    ImageCard,
+    Loader
+  },
 
   setup () {
     const marsImagesStore = useMarsImages()
 
     onMounted(() => {
       marsImagesStore.load()
-      marsImagesStore.isLoad = true
     })
 
     return {

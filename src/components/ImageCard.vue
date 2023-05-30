@@ -6,9 +6,18 @@
   >
     <div class="image-card__wrap">
       <img class="image-card__image" :src="imageItem.img_src" alt="Photo" />
-      <p class="image-card__text">
-        {{ cardNumber }}. {{ imageItem.camera.full_name }}
-      </p>
+      <div class="image-card__text">
+        <p class="image-card__text-item-row">
+          Image ID:
+          <span class="image-card__text-item-content">{{ cardId }}</span>
+        </p>
+        <p class="image-card__text-item-row">
+          Camera:
+          <span class="image-card__text-item-content">{{
+            imageItem.camera.full_name
+          }}</span>
+        </p>
+      </div>
     </div>
 
     <div
@@ -29,7 +38,7 @@ import { ref } from 'vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
-  props: ['cardNumber', 'imageItem'],
+  props: ['cardId', 'imageItem'],
   components: { BaseIcon },
 
   setup () {

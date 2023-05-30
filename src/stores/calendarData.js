@@ -5,9 +5,9 @@ import { addZero } from '../composables/addZero'
 import { useMarsImages } from '../stores/marsImages'
 
 export const useCalendarData = defineStore('calendarData', () => {
-  const isFindUsed = ref(false)
-
   const date = ref(new Date())
+  const calendarLocale = ref('en')
+
   const day = computed(() => date.value.getDate())
   const month = computed(() => date.value.getMonth() + 1)
   const year = computed(() => date.value.getFullYear())
@@ -22,10 +22,6 @@ export const useCalendarData = defineStore('calendarData', () => {
     () => `${addZero(day.value - 3)}/${addZero(month.value)}/${year.value}`
   )
 
-  const previewdDate = computed(
-    () => `${addZero(day.value)}/${addZero(month.value)}/${year.value}`
-  )
-
   const apiDateFormat = computed(() => {
     if (!marsImagesStore.isLoad) {
       return dateLessThanTreeDays.value.split('/').reverse().join('-')
@@ -34,9 +30,13 @@ export const useCalendarData = defineStore('calendarData', () => {
     }
   })
 
+  const previewdDate = computed(() => {
+    return apiDateFormat.value.split('-').reverse().join('/')
+  })
+
   return {
-    isFindUsed,
     date,
+    calendarLocale,
     day,
     month,
     year,

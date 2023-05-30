@@ -2,10 +2,10 @@
   <div class="home">
     <Header />
     <Filter />
-    <ItemsAmount />
-    <Pagination v-show="marsImagesStore.isLoad" />
+    <ItemsAmount v-show="marsImagesStore.imagesLength" />
+    <Pagination v-show="marsImagesStore.imagesLength" />
     <MainContent />
-    <Pagination v-show="marsImagesStore.isLoad" />
+    <Pagination v-show="marsImagesStore.imagesLength" />
     <Footer />
   </div>
 </template>

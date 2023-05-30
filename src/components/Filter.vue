@@ -20,7 +20,7 @@
           class="filter__item"
           :class="{ 'filter__item--mt': showFilterBlock }"
         >
-          Filter Images by:
+          {{ $t('filter.filterBy') }}
         </div>
         <form class="filter__item">
           <Datepicker
@@ -29,12 +29,12 @@
             :clearable="false"
             :enableTimePicker="false"
             class="filter__item--mb filter__item--mr"
-            locale="ru"
+            :locale="calendarDataStore.calendarLocale"
             selectText="Выбрать"
             cancelText="Отмена"
           />
 
-          <Select :items="marsImagesStore.camNames" />
+          <Select :items="marsImagesStore.camNames" v-if="marsImagesStore.imagesLength"/>
         </form>
         <div class="filter__item filter__item--mb-none">
           <Button :text="$t('filter.filterButton')" @click="loadPhotos">
@@ -63,23 +63,12 @@ export default {
     Select
   },
   setup () {
-    const date = ref(new Date())
     const showFilterBtn = ref(false)
     const showFilterBlock = ref(true)
     const windowWidth = ref(0)
 
     const marsImagesStore = useMarsImages()
     const calendarDataStore = useCalendarData()
-
-    const cameraNames = ref(['Camera name', 'camera 1', 'camera 2', 'camera 3'])
-
-    const dateFormat = computed(() => {
-      const day = date.value.getDate()
-      const month = date.value.getMonth() + 1
-      const year = date.value.getFullYear()
-
-      return `${day}/${month}/${year}`
-    })
 
     const updateWindowWidth = () => {
       windowWidth.value = window.innerWidth
@@ -99,6 +88,12 @@ export default {
     onMounted(() => {
       updateWindowWidth()
       window.addEventListener('resize', updateWindowWidth)
+      const localeInStorage = localStorage.getItem('user-locale')
+      if (localeInStorage) {
+        calendarDataStore.calendarLocale = localeInStorage
+      } else {
+        return
+      }
     })
 
     onUnmounted(() => {
@@ -107,15 +102,11 @@ export default {
 
     const loadPhotos = async () => {
       await marsImagesStore.load()
-      calendarDataStore.isFindUsed = true
     }
 
     return {
-      cameraNames,
-      date,
       showFilterBtn,
       showFilterBlock,
-      dateFormat,
       windowWidth,
       marsImagesStore,
       calendarDataStore,
