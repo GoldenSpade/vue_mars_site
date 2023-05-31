@@ -9,7 +9,7 @@
       <div class="image-card__text">
         <p class="image-card__text-item-row">
           Image ID:
-          <span class="image-card__text-item-content">{{ cardId }}</span>
+          <span class="image-card__text-item-content">{{ imageItem.id }}</span>
         </p>
         <p class="image-card__text-item-row">
           Camera:
@@ -38,7 +38,7 @@ import { ref } from 'vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
-  props: ['cardId', 'imageItem'],
+  props: ['imageItem'],
   components: { BaseIcon },
 
   setup () {

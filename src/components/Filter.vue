@@ -30,11 +30,11 @@
             :enableTimePicker="false"
             class="filter__item--mb filter__item--mr"
             :locale="calendarDataStore.calendarLocale"
-            selectText="Выбрать"
-            cancelText="Отмена"
+            :selectText="$t('calendar.selectBtn')"
+            :cancelText="$t('calendar.cancelBtn')"
           />
 
-          <Select :items="marsImagesStore.camNames" v-if="marsImagesStore.imagesLength"/>
+          <SelectCamera />
         </form>
         <div class="filter__item filter__item--mb-none">
           <Button :text="$t('filter.filterButton')" @click="loadPhotos">
@@ -47,20 +47,21 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onUnmounted, watchEffect } from 'vue'
 import { useMarsImages } from '../stores/marsImages'
 import { useCalendarData } from '../stores/calendarData'
 import Datepicker from '@vuepic/vue-datepicker'
 import Button from './Button.vue'
 import BaseIcon from './BaseIcon.vue'
-import Select from './Select.vue'
+import SelectCamera from './SelectCamera.vue'
+import { useItemsAmount } from '../stores/itemsAmount'
 
 export default {
   components: {
     Datepicker,
     Button,
     BaseIcon,
-    Select
+    SelectCamera
   },
   setup () {
     const showFilterBtn = ref(false)
@@ -69,6 +70,7 @@ export default {
 
     const marsImagesStore = useMarsImages()
     const calendarDataStore = useCalendarData()
+    const itemsAmountStore = useItemsAmount()
 
     const updateWindowWidth = () => {
       windowWidth.value = window.innerWidth
@@ -85,7 +87,7 @@ export default {
       showFilterBlock.value = !showFilterBlock.value
     }
 
-    onMounted(() => {
+    watchEffect(() => {
       updateWindowWidth()
       window.addEventListener('resize', updateWindowWidth)
       const localeInStorage = localStorage.getItem('user-locale')
@@ -110,6 +112,7 @@ export default {
       windowWidth,
       marsImagesStore,
       calendarDataStore,
+      itemsAmountStore,
       updateWindowWidth,
       handleChangeFilter,
       loadPhotos

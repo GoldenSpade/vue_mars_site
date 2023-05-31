@@ -3,7 +3,7 @@
     <div class="container">
       <div class="items-amount__wrap">
         <span class="items-amount__text">{{ $t('itemsAmount.items') }}</span>
-        <Select :items="itemsAmount" />
+        <ItemsPerPageFilter />
         <span class="items-amount__total">
           ({{ marsImagesStore.imagesLength }}
           {{ $t('itemsAmount.total') }})</span
@@ -14,20 +14,20 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import Select from './Select.vue'
+import ItemsPerPageFilter from './ItemsPerPageFilter.vue'
 import { useMarsImages } from '../stores/marsImages'
+import { useItemsAmount } from '../stores/itemsAmount'
 
 export default {
-  components: { Select },
+  components: { ItemsPerPageFilter },
 
   setup () {
     const marsImagesStore = useMarsImages()
-    const itemsAmount = ref([15, 25, 50, 100])
+    const itemsAmountStore = useItemsAmount()
 
     return {
-      itemsAmount,
-      marsImagesStore
+      marsImagesStore,
+      itemsAmountStore
     }
   }
 }

@@ -26,8 +26,11 @@
       "hide": "Скрыть фильтры"
     },
     "filterBy": "Фильтр по:",
-    "cameraName": "Название камеры",
     "filterButton": "Найти снимки"
+  },
+  "calendar": {
+    "cancelBtn": "Отмена",
+    "selectBtn": "Выбрать"
   },
   "itemsAmount": {
     "items": "Эл-в на стр.",

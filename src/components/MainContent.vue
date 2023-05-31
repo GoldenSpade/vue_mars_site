@@ -4,11 +4,11 @@
       <div class="main-content__wrap" v-if="marsImagesStore.imagesLength > 0">
         <ImageCard
           v-for="item in marsImagesStore.paginatedImages"
-          :key="item.id"
-          :cardId="item.id"
           :imageItem="item"
+          :key="item.id"
         />
       </div>
+      <div v-else-if="!marsImagesStore.error && marsImagesStore.loadTimeCounter === 7"> Message error </div>
       <Loader v-else/>
     </div>
   </main>

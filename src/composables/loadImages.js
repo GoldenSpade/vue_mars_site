@@ -4,6 +4,6 @@ export const loadImages = async (url, date, apiKey) => {
     const data = await res.json()
     return Object.values(data)[0]
   } catch (err) {
-    return err
+    console.log(err);
   }
 }

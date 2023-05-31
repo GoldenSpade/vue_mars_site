@@ -1,7 +1,7 @@
 <template>
   <div class="pagination">
     <vue-awesome-paginate
-      :total-items="marsImagesStore.imagesLength"
+      :total-items="marsImagesStore.totalItems"
       :items-per-page="marsImagesStore.itemsPerPage"
       :max-pages-shown="marsImagesStore.maxPagesShown"
       v-model="marsImagesStore.currentPage"
