@@ -58,6 +58,8 @@
   }
   &__image {
     max-width: 100%;
+    min-width: 372px;
+    min-height: 375px;
     border-radius: 10px 10px 0 0;
     flex-grow: 1;
 

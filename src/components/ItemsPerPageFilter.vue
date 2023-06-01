@@ -1,7 +1,10 @@
 <template>
-  <select class="select">
+  <select 
+    class="select"
+    v-model="amountFilterStore.currentItemPerPage"
+  >
     <option
-      v-for="(option, idx) in marsImagesStore.camNames"
+      v-for="(option, idx) in amountFilterStore.selectedItemsPerPage"
       :key="idx"
       :value="option"
       class="select__option"
@@ -10,27 +13,16 @@
     </option>
   </select>
 </template>
-
+p
 <script>
-import { useItemsAmount } from '../stores/itemsAmount'
-import { useMarsImages } from '../stores/marsImages'
+import { useAmountFilter } from '../stores/amountFilter'
 
 export default {
   setup () {
-    const itemsAmountStore = useItemsAmount()
-    const marsImagesStore = useMarsImages()
-
-    // const handleSelect = () => {
-    // itemsAmountStore.updateSelected({
-    //   name: props.selectName,
-    //   value: selected.value
-    // })
-    // }
+    const amountFilterStore = useAmountFilter()
 
     return {
-      // handleSelect,
-      itemsAmountStore,
-      marsImagesStore
+      amountFilterStore,
     }
   }
 }

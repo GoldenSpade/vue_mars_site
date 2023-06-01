@@ -5,7 +5,11 @@
         <span class="items-amount__text">{{ $t('itemsAmount.items') }}</span>
         <ItemsPerPageFilter />
         <span class="items-amount__total">
-          ({{ marsImagesStore.imagesLength }}
+          ({{
+            !marsImagesStore.wasCamFilterUsed
+              ? marsImagesStore.imagesLength
+              : marsImagesStore.filteredPaginatedImagesLength
+          }}
           {{ $t('itemsAmount.total') }})</span
         >
       </div>
@@ -16,14 +20,14 @@
 <script>
 import ItemsPerPageFilter from './ItemsPerPageFilter.vue'
 import { useMarsImages } from '../stores/marsImages'
-import { useItemsAmount } from '../stores/itemsAmount'
+import { useAmountFilter } from '../stores/amountFilter'
 
 export default {
   components: { ItemsPerPageFilter },
 
   setup () {
     const marsImagesStore = useMarsImages()
-    const itemsAmountStore = useItemsAmount()
+    const itemsAmountStore = useAmountFilter()
 
     return {
       marsImagesStore,

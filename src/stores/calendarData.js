@@ -18,9 +18,17 @@ export const useCalendarData = defineStore('calendarData', () => {
     () => `${addZero(day.value)}/${addZero(month.value)}/${year.value}`
   )
 
-  const dateLessThanTreeDays = computed(
-    () => `${addZero(day.value - 3)}/${addZero(month.value)}/${year.value}`
-  )
+  const dateLessThanTreeDays = computed(() => {
+    let result = new Date(date.value)
+    
+    result.setDate(result.getDate() - 3)
+
+    const day = result.getDate()
+    const month = result.getMonth() + 1
+    const year = result.getFullYear()
+
+    return `${addZero(day)}/${addZero(month)}/${year}`
+  })
 
   const apiDateFormat = computed(() => {
     if (!marsImagesStore.isLoad) {

@@ -54,7 +54,7 @@ import Datepicker from '@vuepic/vue-datepicker'
 import Button from './Button.vue'
 import BaseIcon from './BaseIcon.vue'
 import SelectCamera from './SelectCamera.vue'
-import { useItemsAmount } from '../stores/itemsAmount'
+import { useAmountFilter } from '../stores/amountFilter'
 
 export default {
   components: {
@@ -70,7 +70,7 @@ export default {
 
     const marsImagesStore = useMarsImages()
     const calendarDataStore = useCalendarData()
-    const itemsAmountStore = useItemsAmount()
+    const amountFilterStore = useAmountFilter()
 
     const updateWindowWidth = () => {
       windowWidth.value = window.innerWidth
@@ -112,7 +112,7 @@ export default {
       windowWidth,
       marsImagesStore,
       calendarDataStore,
-      itemsAmountStore,
+      amountFilterStore,
       updateWindowWidth,
       handleChangeFilter,
       loadPhotos
