@@ -8,7 +8,7 @@
         "
       >
         <ImageCard
-          v-for="item in marsImagesStore.paginatedImages"
+          v-for="item in paginationStore.paginatedImages"
           :imageItem="item"
           :key="item.id"
         />
@@ -21,7 +21,7 @@
         "
       >
         <ImageCard
-          v-for="item in marsImagesStore.filteredPaginatedImages"
+          v-for="item in paginationStore.filteredPaginatedImages"
           :imageItem="item"
           :key="item.id"
         />
@@ -43,6 +43,7 @@
 import { onMounted } from 'vue'
 import ImageCard from './ImageCard.vue'
 import { useMarsImages } from '../stores/marsImages'
+import { usePagination } from '../stores/pagination'
 import Loader from './Loader.vue'
 
 export default {
@@ -53,13 +54,15 @@ export default {
 
   setup () {
     const marsImagesStore = useMarsImages()
+    const paginationStore = usePagination()
 
     onMounted(() => {
       marsImagesStore.load()
     })
 
     return {
-      marsImagesStore
+      marsImagesStore,
+      paginationStore
     }
   }
 }

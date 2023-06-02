@@ -6,6 +6,7 @@
     <Pagination v-show="marsImagesStore.imagesLength" />
     <MainContent />
     <Pagination v-show="marsImagesStore.imagesLength" />
+    <ScrollToTop />
     <Footer />
   </div>
 </template>
@@ -17,6 +18,8 @@ import ItemsAmount from '../components/ItemsAmount.vue'
 import Pagination from '../components/Pagination.vue'
 import MainContent from '../components/MainContent.vue'
 import Footer from '../components/Footer.vue'
+import ScrollToTop from '../components/ScrollToTop.vue'
+
 import { useMarsImages } from '../stores/marsImages'
 
 export default {
@@ -26,7 +29,8 @@ export default {
     ItemsAmount,
     Pagination,
     MainContent,
-    Footer
+    Footer,
+    ScrollToTop
   },
 
   setup () {

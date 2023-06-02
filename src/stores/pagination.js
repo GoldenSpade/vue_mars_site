@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useMarsImages } from './marsImages'
 import { useAmountFilter } from './amountFilter'
 
@@ -21,7 +21,7 @@ export const usePagination = defineStore('pagination', () => {
   }
 
   const paginatedImages = computed(() =>
-    [...marsImagesStore.images.value].splice(fromIdx.value, itemsPerPage.value)
+    [...marsImagesStore.images].splice(fromIdx.value, itemsPerPage.value)
   )
 
   // Filtered images pagination
@@ -42,14 +42,14 @@ export const usePagination = defineStore('pagination', () => {
   }
 
   const filteredPaginatedImages = computed(() =>
-    [...marsImagesStore.filteredByCamNames.value].splice(
+    [...marsImagesStore.filteredByCamNames].splice(
       filteredFromIdx.value,
       filteredItemsPerPage.value
     )
   )
 
   const filteredPaginatedImagesLength = computed(
-    () => filteredByCamNames.value.length || 0
+    () => marsImagesStore.filteredByCamNames.length || 0
   )
 
   return {

@@ -68,7 +68,9 @@ export const useMarsImages = defineStore('marsImages', () => {
     }
   }
 
-  const amountFilterStore = useAmountFilter()
+  
+
+  /* const amountFilterStore = useAmountFilter()
 
   // images pagination
 
@@ -113,7 +115,7 @@ export const useMarsImages = defineStore('marsImages', () => {
 
   const filteredPaginatedImagesLength = computed(
     () => filteredByCamNames.value.length || 0
-  )
+  ) */
 
   return {
     isLoad,
@@ -127,21 +129,22 @@ export const useMarsImages = defineStore('marsImages', () => {
     selectedCamName,
     filteredByCamNames,
     load,
-    amountFilterStore,
-    
-    itemsPerPage,
-    maxPagesShown,
-    currentPage,
-    fromIdx,
-    onClickHandler,
+   
+    // amountFilterStore,
 
-    paginatedImages,
-    filteredItemsPerPage,
-    filteredMaxPagesShown,
-    filteredCurrentPage,
-    filteredFromIdx,
-    filteredOnClickHandler,
-    filteredPaginatedImages,
-    filteredPaginatedImagesLength
+    // itemsPerPage,
+    // maxPagesShown,
+    // currentPage,
+    // fromIdx,
+    // onClickHandler,
+
+    // paginatedImages,
+    // filteredItemsPerPage,
+    // filteredMaxPagesShown,
+    // filteredCurrentPage,
+    // filteredFromIdx,
+    // filteredOnClickHandler,
+    // filteredPaginatedImages,
+    // filteredPaginatedImagesLength
   }
 })

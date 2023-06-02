@@ -8,7 +8,7 @@
           ({{
             !marsImagesStore.wasCamFilterUsed
               ? marsImagesStore.imagesLength
-              : marsImagesStore.filteredPaginatedImagesLength
+              : paginationStore.filteredPaginatedImagesLength
           }}
           {{ $t('itemsAmount.total') }})</span
         >
@@ -20,6 +20,7 @@
 <script>
 import ItemsPerPageFilter from './ItemsPerPageFilter.vue'
 import { useMarsImages } from '../stores/marsImages'
+import { usePagination } from '../stores/pagination'
 import { useAmountFilter } from '../stores/amountFilter'
 
 export default {
@@ -27,10 +28,12 @@ export default {
 
   setup () {
     const marsImagesStore = useMarsImages()
+    const paginationStore = usePagination()
     const itemsAmountStore = useAmountFilter()
 
     return {
       marsImagesStore,
+      paginationStore,
       itemsAmountStore
     }
   }
