@@ -6,8 +6,8 @@
     <Pagination v-show="marsImagesStore.imagesLength" />
     <MainContent />
     <Pagination v-show="marsImagesStore.imagesLength" />
-    <ScrollToTop />
     <Footer />
+    <ScrollToTop />
   </div>
 </template>
 

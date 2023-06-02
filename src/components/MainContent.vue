@@ -27,13 +27,12 @@
         />
       </div>
 
-      <div
+      <NoDataMessage
         v-else-if="
           !marsImagesStore.error && marsImagesStore.loadTimeCounter === 7
         "
-      >
-        Message error
-      </div>
+      />
+
       <Loader v-else-if="marsImagesStore.imagesLength == 0" />
     </div>
   </main>
@@ -45,11 +44,13 @@ import ImageCard from './ImageCard.vue'
 import { useMarsImages } from '../stores/marsImages'
 import { usePagination } from '../stores/pagination'
 import Loader from './Loader.vue'
+import NoDataMessage from './NoDataMessage.vue'
 
 export default {
   components: {
     ImageCard,
-    Loader
+    Loader,
+    NoDataMessage
   },
 
   setup () {

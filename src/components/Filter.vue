@@ -88,18 +88,14 @@ export default {
     }
 
     watchEffect(() => {
-      updateWindowWidth()
       window.addEventListener('resize', updateWindowWidth)
+      
       const localeInStorage = localStorage.getItem('user-locale')
       if (localeInStorage) {
         calendarDataStore.calendarLocale = localeInStorage
       } else {
         return
       }
-    })
-
-    onUnmounted(() => {
-      window.removeEventListener('resize', updateWindowWidth)
     })
 
     const loadPhotos = async () => {

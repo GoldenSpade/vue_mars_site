@@ -17,6 +17,12 @@
             imageItem.camera.full_name
           }}</span>
         </p>
+        <p class="image-card__text-item-row">
+          Earth date:
+          <span class="image-card__text-item-content">{{
+            imageItem.earth_date
+          }}</span>
+        </p>
       </div>
     </div>
 
@@ -34,18 +40,18 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
   props: ['imageItem'],
   components: { BaseIcon },
 
-  setup () {
+  setup (props) {
     const isHovering = ref(false)
 
     return {
-      isHovering
+      isHovering,
     }
   }
 }

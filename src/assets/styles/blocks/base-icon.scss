@@ -1,9 +1,13 @@
 .ico {
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: opacity 0.4s;
   margin-left: 10px;
   &:hover {
     cursor: pointer;
+  }
+  &--ml-none {
+    margin-left: 0;
   }
 }

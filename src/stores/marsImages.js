@@ -3,7 +3,6 @@ import { ref, computed } from 'vue'
 import { loadImages } from '../composables/loadImages'
 
 import { useCalendarData } from './calendarData'
-import { useAmountFilter } from './amountFilter'
 
 export const useMarsImages = defineStore('marsImages', () => {
   const isLoad = ref(false)
@@ -68,55 +67,6 @@ export const useMarsImages = defineStore('marsImages', () => {
     }
   }
 
-  
-
-  /* const amountFilterStore = useAmountFilter()
-
-  // images pagination
-
-  const itemsPerPage = computed(() => amountFilterStore.currentItemPerPage)
-  const maxPagesShown = ref(5) // amount of max pagination links
-  const currentPage = ref(1)
-  // starter index for paginatedPosts
-  const fromIdx = computed(() => (currentPage.value - 1) * itemsPerPage.value)
-
-  // Paginate event page. Is equal to pagination item number (it's >= 1)
-  const onClickHandler = page => {
-    currentPage.value = page
-  }
-
-  const paginatedImages = computed(() =>
-    [...images.value].splice(fromIdx.value, itemsPerPage.value)
-  )
-
-  // Filtered images pagination
-
-  const filteredItemsPerPage = computed(
-    () => amountFilterStore.currentItemPerPage
-  )
-  const filteredMaxPagesShown = ref(5) // amount of max pagination links
-  const filteredCurrentPage = ref(1)
-  // starter index for paginatedPosts
-  const filteredFromIdx = computed(
-    () => (currentPage.value - 1) * filteredItemsPerPage.value
-  )
-
-  // Paginate event page. Is equal to pagination item number (it's >= 1)
-  const filteredOnClickHandler = page => {
-    currentPage.value = page
-  }
-
-  const filteredPaginatedImages = computed(() =>
-    [...filteredByCamNames.value].splice(
-      filteredFromIdx.value,
-      filteredItemsPerPage.value
-    )
-  )
-
-  const filteredPaginatedImagesLength = computed(
-    () => filteredByCamNames.value.length || 0
-  ) */
-
   return {
     isLoad,
     loadTimeCounter,
@@ -128,23 +78,6 @@ export const useMarsImages = defineStore('marsImages', () => {
     wasCamFilterUsed,
     selectedCamName,
     filteredByCamNames,
-    load,
-   
-    // amountFilterStore,
-
-    // itemsPerPage,
-    // maxPagesShown,
-    // currentPage,
-    // fromIdx,
-    // onClickHandler,
-
-    // paginatedImages,
-    // filteredItemsPerPage,
-    // filteredMaxPagesShown,
-    // filteredCurrentPage,
-    // filteredFromIdx,
-    // filteredOnClickHandler,
-    // filteredPaginatedImages,
-    // filteredPaginatedImagesLength
+    load
   }
 })

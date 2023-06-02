@@ -7,7 +7,7 @@
       v-for="(option, idx) in marsImagesStore.camNames"
       :key="idx"
       :value="option"
-
+      selected="Select Camera"
       class="select__option"
     >
       {{ option }}

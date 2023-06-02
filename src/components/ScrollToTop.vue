@@ -1,60 +1,46 @@
 <template>
-  <div>
-    <transition name="fade">
-      <div
-        id="pagetop"
-        class="fixed right-0 bottom-0"
-        v-show="scY > 5287"
-        @click="toTop"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#4a5568"
-          stroke-width="1"
-          stroke-linecap="square"
-          stroke-linejoin="arcs"
-        >
-          <path d="M18 15l-6-6-6 6" />
-        </svg>
-      </div>
-    </transition>
+  <!-- <div class="scroll-to-top scroll-to-top--show"> -->
+  <div class="scroll-to-top" :class="{ 'scroll-to-top--show': isVisible }">
+    <button class="scroll-to-top__btn" @click="scrollToTop">
+      <BaseIcon iconName="arrowUp" class="ico--ml-none" />
+      <span class="scroll-to-top__text">TOP</span>
+    </button>
   </div>
 </template>
+
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, watchEffect } from 'vue'
+import BaseIcon from './BaseIcon.vue'
 
 export default {
+  components: { BaseIcon },
+
   setup () {
-    const scTimer = ref(0)
-    const scY = ref(0)
+    const isVisible = ref(true)
+    const scrollY = ref(0)
 
-    const handleScroll = () => {
-      if (scTimer.value) return
-      scTimer.value = setTimeout(() => {
-        scY.value = window.scrollY
-        clearTimeout(scTimer.value)
-        scTimer.value = 0
-      }, 100)
+    const updateScrollY = () => {
+      scrollY.value = window.scrollY
+      if (scrollY.value >= 900) {
+        isVisible.value = true
+      } else {
+        isVisible.value = false
+      }
     }
 
-    const toTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
+    watchEffect(() => {
+      window.addEventListener('scroll', updateScrollY)
+    })
+ 
+    const scrollToTop = () => {
+      window.scrollTo(0, 0)
     }
-
-    onMounted(() => window.addEventListener('scroll', handleScroll))
 
     return {
-      scTimer,
-      scY,
-      handleScroll,
-      toTop
+      isVisible,
+      scrollY,
+      updateScrollY,
+      scrollToTop
     }
   }
 }
