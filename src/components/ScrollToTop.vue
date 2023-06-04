@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="scroll-to-top scroll-to-top--show"> -->
   <div class="scroll-to-top" :class="{ 'scroll-to-top--show': isVisible }">
     <button class="scroll-to-top__btn" @click="scrollToTop">
       <BaseIcon iconName="arrowUp" class="ico--ml-none" />
@@ -16,7 +15,7 @@ export default {
   components: { BaseIcon },
 
   setup () {
-    const isVisible = ref(true)
+    const isVisible = ref(false)
     const scrollY = ref(0)
 
     const updateScrollY = () => {
@@ -31,7 +30,7 @@ export default {
     watchEffect(() => {
       window.addEventListener('scroll', updateScrollY)
     })
- 
+
     const scrollToTop = () => {
       window.scrollTo(0, 0)
     }

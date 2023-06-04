@@ -6,6 +6,7 @@ import { useCalendarData } from './calendarData'
 
 export const useMarsImages = defineStore('marsImages', () => {
   const isLoad = ref(false)
+  const canUseLoad = ref(true)
   const loadTimeCounter = ref(0)
   const images = ref([])
   const imagesLength = computed(() => images.value.length || 0)
@@ -15,10 +16,7 @@ export const useMarsImages = defineStore('marsImages', () => {
 
   const camNames = computed(() => {
     const names = images.value.map(elem => elem.camera.full_name || [])
-    return [
-      'Select Camera',
-      ...names.filter((elem, idx) => names.indexOf(elem) === idx)
-    ]
+    return ['Select Camera', ...names.filter((elem, idx) => names.indexOf(elem) === idx)]
   })
 
   const wasCamFilterUsed = ref(false)
@@ -32,9 +30,7 @@ export const useMarsImages = defineStore('marsImages', () => {
       wasCamFilterUsed.value = false
     }
 
-    return images.value.filter(
-      image => image.camera.full_name === selectedCamName.value
-    )
+    return images.value.filter(image => image.camera.full_name === selectedCamName.value)
   })
 
   const load = async () => {
@@ -69,6 +65,7 @@ export const useMarsImages = defineStore('marsImages', () => {
 
   return {
     isLoad,
+    canUseLoad,
     loadTimeCounter,
     images,
     imagesLength,

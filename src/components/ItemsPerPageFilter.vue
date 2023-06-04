@@ -1,8 +1,5 @@
 <template>
-  <select 
-    class="select"
-    v-model="amountFilterStore.currentItemPerPage"
-  >
+  <select class="select" v-model="amountFilterStore.currentItemPerPage">
     <option
       v-for="(option, idx) in amountFilterStore.selectedItemsPerPage"
       :key="idx"
@@ -22,7 +19,7 @@ export default {
     const amountFilterStore = useAmountFilter()
 
     return {
-      amountFilterStore,
+      amountFilterStore
     }
   }
 }

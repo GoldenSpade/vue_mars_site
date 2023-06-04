@@ -1,0 +1,50 @@
+.single-card {
+  &__wrap {
+    padding: 20px 0;
+    min-width: 100%;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+    border-radius: 10px 10px 0 0;
+  }
+  &__image {
+    min-width: 100%;
+    border-radius: 10px 10px 0 0;
+    @media (max-width: 1050px) {
+      max-width: 100%;
+    }
+  }
+  &__row {
+    font-family: 'PoppinsRegular', 'RobotoRegular', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 20px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #dfdfdf;
+    word-wrap: break-word;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    min-width: 100%;
+  }
+  &__text-line {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__text-item {
+    flex: 0 1 50%;
+  }
+  &__text-item--bold {
+    font-family: 'PoppinsBold', 'RobotoBold', sans-serif;
+    color: #495e79;
+    text-align: right;
+  }
+}

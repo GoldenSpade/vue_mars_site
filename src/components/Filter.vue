@@ -4,11 +4,7 @@
       <div class="filter__button-wrap" v-show="showFilterBtn">
         <Button
           class="button"
-          :text="
-            showFilterBlock
-              ? $t('filter.showFilters.hide')
-              : $t('filter.showFilters.show')
-          "
+          :text="showFilterBlock ? $t('filter.showFilters.hide') : $t('filter.showFilters.show')"
           @event="handleChangeFilter"
         >
           <BaseIcon iconName="menu" v-if="!showFilterBlock" />
@@ -16,10 +12,7 @@
         </Button>
       </div>
       <div class="filter__wrap" v-show="showFilterBlock">
-        <div
-          class="filter__item"
-          :class="{ 'filter__item--mt': showFilterBlock }"
-        >
+        <div class="filter__item" :class="{ 'filter__item--mt': showFilterBlock }">
           {{ $t('filter.filterBy') }}
         </div>
         <form class="filter__item">
@@ -47,7 +40,7 @@
 </template>
 
 <script>
-import { ref, onUnmounted, watchEffect } from 'vue'
+import { ref, onUnmounted, watchEffect, onMounted } from 'vue'
 import { useMarsImages } from '../stores/marsImages'
 import { useCalendarData } from '../stores/calendarData'
 import Datepicker from '@vuepic/vue-datepicker'
@@ -89,12 +82,22 @@ export default {
 
     watchEffect(() => {
       window.addEventListener('resize', updateWindowWidth)
-      
+
       const localeInStorage = localStorage.getItem('user-locale')
       if (localeInStorage) {
         calendarDataStore.calendarLocale = localeInStorage
       } else {
         return
+      }
+    })
+
+    onMounted(() => {
+      if (window.innerWidth <= 975) {
+        showFilterBtn.value = true
+        showFilterBlock.value = false
+      } else {
+        showFilterBtn.value = false
+        showFilterBlock.value = true
       }
     })
 

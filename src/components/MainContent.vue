@@ -3,35 +3,35 @@
     <div class="container">
       <div
         class="main-content__wrap"
-        v-if="
-          marsImagesStore.imagesLength > 0 && !marsImagesStore.wasCamFilterUsed
-        "
+        v-if="marsImagesStore.imagesLength > 0 && !marsImagesStore.wasCamFilterUsed"
       >
-        <ImageCard
+        <div
+          class="image-card__outer"
           v-for="item in paginationStore.paginatedImages"
-          :imageItem="item"
           :key="item.id"
-        />
+        >
+          <router-link :to="{ name: 'singleCard', params: { imageId: item.id } }">
+            <ImageCard :imageItem="item" />
+          </router-link>
+        </div>
       </div>
 
       <div
         class="main-content__wrap"
-        v-if="
-          marsImagesStore.imagesLength > 0 && marsImagesStore.wasCamFilterUsed
-        "
+        v-if="marsImagesStore.imagesLength > 0 && marsImagesStore.wasCamFilterUsed"
       >
-        <ImageCard
+        <div
+          class="image-card__outer"
           v-for="item in paginationStore.filteredPaginatedImages"
-          :imageItem="item"
           :key="item.id"
-        />
+        >
+          <router-link :to="{ name: 'singleCard', params: { imageId: item.id } }">
+            <ImageCard :imageItem="item" />
+          </router-link>
+        </div>
       </div>
 
-      <NoDataMessage
-        v-else-if="
-          !marsImagesStore.error && marsImagesStore.loadTimeCounter === 7
-        "
-      />
+      <NoDataMessage v-else-if="!marsImagesStore.error && marsImagesStore.loadTimeCounter === 7" />
 
       <Loader v-else-if="marsImagesStore.imagesLength == 0" />
     </div>
@@ -58,7 +58,11 @@ export default {
     const paginationStore = usePagination()
 
     onMounted(() => {
-      marsImagesStore.load()
+      if (marsImagesStore.canUseLoad) {
+        marsImagesStore.load()
+      } else {
+        marsImagesStore.canUseLoad = true
+      }
     })
 
     return {

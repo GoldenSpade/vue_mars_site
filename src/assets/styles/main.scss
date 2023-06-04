@@ -17,6 +17,7 @@
 @import './blocks/loader';
 @import './blocks/scroll-to-top';
 @import './blocks/no-data-message';
+@import './blocks/single-card';
 
 * {
   box-sizing: border-box;
@@ -41,4 +42,5 @@ html {
 
 body {
   color: #252525;
+  background: url(../img/body/body-bg.jpg);
 }
