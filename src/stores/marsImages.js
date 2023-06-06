@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, computed, nextTick } from 'vue'
 import { loadImages } from '../composables/loadImages'
 
 import { useCalendarData } from './calendarData'
@@ -22,6 +22,10 @@ export const useMarsImages = defineStore('marsImages', () => {
   const wasCamFilterUsed = ref(false)
 
   const selectedCamName = ref('Select Camera')
+
+  const filterByCamName = currentCamName => {
+    nextTick(() => (selectedCamName.value = currentCamName))
+  }
 
   const filteredByCamNames = computed(() => {
     if (selectedCamName.value !== 'Select Camera') {
@@ -74,6 +78,7 @@ export const useMarsImages = defineStore('marsImages', () => {
     camNames,
     wasCamFilterUsed,
     selectedCamName,
+    filterByCamName,
     filteredByCamNames,
     load
   }

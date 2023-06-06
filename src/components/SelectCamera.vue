@@ -1,8 +1,5 @@
 <template>
-  <select
-    class="select"
-    v-model="marsImagesStore.selectedCamName"
-  >
+  <select class="select" v-model="marsImagesStore.selectedCamName" @change="showOption">
     <option
       v-for="(option, idx) in marsImagesStore.camNames"
       :key="idx"
@@ -22,8 +19,14 @@ export default {
   setup () {
     const marsImagesStore = useMarsImages()
 
+    const showOption = e => {
+      const currentCamName = e.target.value
+      marsImagesStore.filterByCamName(currentCamName)
+    }
+
     return {
-      marsImagesStore
+      marsImagesStore,
+      showOption
     }
   }
 }
