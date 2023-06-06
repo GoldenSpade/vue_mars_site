@@ -6,6 +6,7 @@ import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/vue_mars_site/',
   plugins: [
     vue(),
     VueI18nPlugin({
@@ -17,5 +18,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
 })

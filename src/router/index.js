@@ -8,12 +8,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes: [
     {
-      path: '/:locale?',
+      path: '/vue_mars_site/:locale?',
       component: RouterView,
       beforeEnter: Tr.routeMiddleware,
       children: [
         {
-          path: '',
+          path: '/vue_mars_site/:locale?',
           name: 'home',
           component: HomeView
         },
