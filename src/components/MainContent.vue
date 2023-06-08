@@ -18,7 +18,7 @@
 
       <div
         class="main-content__wrap"
-        v-if="marsImagesStore.imagesLength > 0 && marsImagesStore.wasCamFilterUsed"
+        v-else-if="marsImagesStore.imagesLength > 0 && marsImagesStore.wasCamFilterUsed"
       >
         <div
           class="image-card__outer"

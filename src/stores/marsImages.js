@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed, nextTick } from 'vue'
+import { ref, computed } from 'vue'
 import { loadImages } from '../composables/loadImages'
 
 import { useCalendarData } from './calendarData'
@@ -16,6 +16,7 @@ export const useMarsImages = defineStore('marsImages', () => {
 
   const camNames = computed(() => {
     const names = images.value.map(elem => elem.camera.full_name || [])
+
     return ['Select Camera', ...names.filter((elem, idx) => names.indexOf(elem) === idx)]
   })
 
@@ -23,24 +24,26 @@ export const useMarsImages = defineStore('marsImages', () => {
 
   const selectedCamName = ref('Select Camera')
 
-  const filterByCamName = currentCamName => {
-    nextTick(() => (selectedCamName.value = currentCamName))
-  }
+  const filteredByCamNames = ref([])
 
-  const filteredByCamNames = computed(() => {
+  const filterByCamName = currentCamName => {
+    selectedCamName.value = currentCamName
+    filteredByCamNames.value = images.value.filter(elem => elem.camera.full_name === currentCamName)
+
     if (selectedCamName.value !== 'Select Camera') {
       wasCamFilterUsed.value = true
     } else {
       wasCamFilterUsed.value = false
     }
-
-    return images.value.filter(image => image.camera.full_name === selectedCamName.value)
-  })
+  }
 
   const load = async () => {
     images.value = []
+    selectedCamName.value = 'Select Camera'
+    wasCamFilterUsed.value = false
 
     loadTimeCounter.value = 0
+
     const dataLoadingTimer = setInterval(() => {
       loadTimeCounter.value++
       if (loadTimeCounter.value === 7) {
@@ -53,11 +56,14 @@ export const useMarsImages = defineStore('marsImages', () => {
         setTimeout(resolve, 1000)
       })
 
-      images.value = await loadImages(
+      const data = await loadImages(
         import.meta.env.VITE_API_URL,
         calendarDataStore.apiDateFormat,
         import.meta.env.VITE_API_KEY
       )
+
+      images.value = data
+
       if (imagesLength.value > 0) {
         clearInterval(dataLoadingTimer)
         isLoad.value = true
@@ -65,6 +71,7 @@ export const useMarsImages = defineStore('marsImages', () => {
     } catch (err) {
       error.value = err
     }
+    
   }
 
   return {

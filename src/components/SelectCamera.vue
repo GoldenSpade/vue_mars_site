@@ -20,8 +20,7 @@ export default {
     const marsImagesStore = useMarsImages()
 
     const showOption = e => {
-      const currentCamName = e.target.value
-      marsImagesStore.filterByCamName(currentCamName)
+      marsImagesStore.filterByCamName(e.target.value)
     }
 
     return {

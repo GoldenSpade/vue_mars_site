@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { ref, onUnmounted, watchEffect, onMounted } from 'vue'
+import { ref, watchEffect, onMounted } from 'vue'
 import { useMarsImages } from '../stores/marsImages'
 import { useCalendarData } from '../stores/calendarData'
 import Datepicker from '@vuepic/vue-datepicker'
@@ -102,6 +102,9 @@ export default {
     })
 
     const loadPhotos = async () => {
+      if (window.innerWidth <= 975) {
+        showFilterBlock.value = false
+      }
       await marsImagesStore.load()
     }
 

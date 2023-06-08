@@ -18,20 +18,23 @@ const router = createRouter({
           component: HomeView
         },
         {
-          path: 'about',
+          path: '/vue_mars_site/about',
           name: 'about',
           component: About
         },
         {
-          path: '/:imageId',
+          path: '/vue_mars_site/images/id/:imageId',
           name: 'singleCard',
           component: SingleCard,
           props: true
+        },
+        {
+          path: '/vue_mars_site/:notFound(.*)',
+          component: About
         }
       ]
-    }
+    },
   ]
 })
-
 
 export default router
