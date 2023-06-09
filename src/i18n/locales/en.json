@@ -28,6 +28,15 @@
     "filterBy": "Filter Images by:",
     "filterButton": "Find images"
   },
+  "imageCard": {
+    "id": "Image ID:",
+    "camName": "Camera Name:",
+    "camFullName": "Camera Full Name:",
+    "earthDate": "Earth Date:",
+    "roverName": "Rover Name:",
+    "roverStatus": "Rover Status:",
+    "roverLandDate": "Landing date:"
+  },
   "calendar": {
     "cancelBtn": "Cancel",
     "selectBtn": "Select"

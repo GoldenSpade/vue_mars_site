@@ -28,6 +28,15 @@
     "filterBy": "Фильтр по:",
     "filterButton": "Найти снимки"
   },
+  "imageCard": {
+    "id": "Идентификатор изображения:",
+    "camName": "Название камеры:",
+    "camFullName": "Полное название камеры:",
+    "earthDate": "Земная дата:",
+    "roverName": "Название косм. аппарата:",
+    "roverStatus": "Статус косм. аппарата:",
+    "roverLandDate": "Дата посадки:"
+  },
   "calendar": {
     "cancelBtn": "Отмена",
     "selectBtn": "Выбрать"

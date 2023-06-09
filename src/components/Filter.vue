@@ -1,5 +1,5 @@
 <template>
-  <div class="filter">
+  <div class="filter" ref="div">
     <div class="container">
       <div class="filter__button-wrap" v-show="showFilterBtn">
         <Button
@@ -57,6 +57,7 @@ export default {
     SelectCamera
   },
   setup () {
+    const div = ref(null)
     const showFilterBtn = ref(false)
     const showFilterBlock = ref(true)
     const windowWidth = ref(0)
@@ -109,6 +110,7 @@ export default {
     }
 
     return {
+      div,
       showFilterBtn,
       showFilterBlock,
       windowWidth,

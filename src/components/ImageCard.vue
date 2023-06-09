@@ -5,52 +5,51 @@
       <div class="image-card__text">
         <p class="image-card__text-item-row">
           <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Image ID:
+            >{{ $t('imageCard.id') }}
           </span>
           <span class="image-card__text-item-content">{{ imageItem.id }}</span>
         </p>
         <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Camera Name:</span
-          >
+          <span class="image-card__text-item-content image-card__text-item-content--bold">{{
+            $t('imageCard.camName')
+          }}</span>
           <span class="image-card__text-item-content">{{ imageItem.camera.name }}</span>
         </p>
         <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Camera Full Name:</span
-          >
+          <span class="image-card__text-item-content image-card__text-item-content--bold">{{
+            $t('imageCard.camFullName')
+          }}</span>
           <span class="image-card__text-item-content">{{ imageItem.camera.full_name }}</span>
         </p>
         <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Earth date:</span
-          >
+          <span class="image-card__text-item-content image-card__text-item-content--bold">{{
+            $t('imageCard.earthDate')
+          }}</span>
           <span class="image-card__text-item-content">{{ imageItem.earth_date }}</span>
         </p>
         <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Rover Name:</span
-          >
+          <span class="image-card__text-item-content image-card__text-item-content--bold">{{
+            $t('imageCard.roverName')
+          }}</span>
           <span class="image-card__text-item-content">{{ imageItem.rover.name }}</span>
         </p>
         <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Rover Status:</span
-          >
+          <span class="image-card__text-item-content image-card__text-item-content--bold">{{
+            $t('imageCard.roverStatus')
+          }}</span>
           <span class="image-card__text-item-content">{{ roverStatusUpper }}</span>
         </p>
         <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Landing Date:</span
-          >
+          <span class="image-card__text-item-content image-card__text-item-content--bold">{{
+            $t('imageCard.roverLandDate')
+          }}</span>
           <span class="image-card__text-item-content">{{ imageItem.rover.landing_date }}</span>
         </p>
-        <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold"
-            >Launch Date:</span
-          >
+        <!-- <p class="image-card__text-item-row">
+          <span class="image-card__text-item-content image-card__text-item-content--bold">
+            {{ $t('imageCard.raunchDate') }}</span>
           <span class="image-card__text-item-content">{{ imageItem.rover.launch_date }}</span>
-        </p>
+        </p> -->
       </div>
     </div>
 
