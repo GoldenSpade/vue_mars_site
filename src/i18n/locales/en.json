@@ -1,24 +1,14 @@
 {
   "locale": {
     "en": "En",
-    "ru": "Ru"
+    "ru": "Ru",
+    "pl": "Pl",
+    "ua": "Ua",
+    "de": "De"
   },
   "header": {
     "title": "Images of Mars",
     "subTitle": "From the Curiosity rover"
-  },
-  "nav": {
-    "home": "Home",
-    "about": "About"
-  },
-  "home": {
-    "header": "Welcome to the Vue 3 I18n tutorial!",
-    "created_by": "This tutorial was brought to you by {company}.",
-    "num_visits": "This page hasn't been visited :( | This page has been visited {n} time | This page has been visited {n} times"
-  },
-  "about": {
-    "header": "About us",
-    "donations": "Donations raised: {donations}"
   },
   "filter": {
     "showFilters": {
@@ -29,13 +19,15 @@
     "filterButton": "Find images"
   },
   "imageCard": {
+    "caption": "You can click on the image to view it in more detail.",
     "id": "Image ID:",
     "camName": "Camera Name:",
     "camFullName": "Camera Full Name:",
     "earthDate": "Earth Date:",
     "roverName": "Rover Name:",
     "roverStatus": "Rover Status:",
-    "roverLandDate": "Landing date:"
+    "landDate": "Landing date:",
+    "launchDate": "Launch Date:"
   },
   "calendar": {
     "cancelBtn": "Cancel",
@@ -46,16 +38,16 @@
     "total": "total"
   },
   "footer": {
-    "text": "The NASA Hubble Space Telescope is a project of international cooperation between NASA and ESA. AURA's Space Telescope Science Institute in Baltimore, Maryland, conducts Hubble science operations.",
+    "text": "The NASA «Hubble» Space Telescope is a project of international cooperation between NASA and ESA. AURA's Space Telescope Science Institute in Baltimore, Maryland, conducts «Hubble» science operations.",
     "links-1": {
-      "about": " About Us",
-      "glossary": " Glossary",
-      "copyright": " Copyright"
+      "about": "About Us",
+      "glossary": "Glossary",
+      "copyright": "Copyright"
     },
     "links-2": {
-      "contacs": " Contact Us",
-      "privacy": " Privacy Policy",
-      "sitemap": " Sitemap"
+      "contacs": "Contact Us",
+      "privacy": "Privacy Policy",
+      "sitemap": "Sitemap"
     }
   }
 }

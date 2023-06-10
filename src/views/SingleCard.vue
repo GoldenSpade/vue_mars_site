@@ -4,59 +4,70 @@
     <main class="single-card__wrap">
       <div class="container">
         <div class="single-card__content">
-          <a :href="singleCardStore.singleCard.img_src" target="_blank" class="single-card__image-link">
+          <a
+            :href="singleCardStore.singleCard.img_src"
+            target="_blank"
+            class="single-card__image-link"
+          >
             <img :src="singleCardStore.singleCard.img_src" class="single-card__image" />
           </a>
           <ul class="single-card__items">
+            <li class="single-card__text-line single-card__text-line--bold">
+              {{ $t('imageCard.caption') }}
+            </li>
             <li class="single-card__text-line">
-              <span class="single-card__text-item single-card__text-item--bold">Image ID: </span>
+              <span class="single-card__text-item single-card__text-item--bold">{{
+                $t('imageCard.id')
+              }}</span>
               <span class="single-card__text-item">{{ singleCardStore.singleCard.id }}</span>
             </li>
             <li class="single-card__text-line">
-              <span class="single-card__text-item single-card__text-item--bold">Camera Name: </span>
+              <span class="single-card__text-item single-card__text-item--bold">{{
+                $t('imageCard.camName')
+              }}</span>
               <span class="single-card__text-item">{{
                 singleCardStore.singleCard.camera.name
               }}</span>
             </li>
             <li class="single-card__text-line">
-              <span class="single-card__text-item single-card__text-item--bold"
-                >Camera Full Name:</span
-              >
+              <span class="single-card__text-item single-card__text-item--bold">{{
+                $t('imageCard.camFullName')
+              }}</span>
               <span class="single-card__text-item">{{
                 singleCardStore.singleCard.camera.full_name
               }}</span>
             </li>
             <li class="single-card__text-line">
-              <span class="single-card__text-item single-card__text-item--bold">Earth Date: </span>
-              <span class="single-card__text-item">{{
-                singleCardStore.singleCard.earth_date
+              <span class="single-card__text-item single-card__text-item--bold">{{
+                $t('imageCard.earthDate')
               }}</span>
+              <span class="single-card__text-item">{{ earthDate }}</span>
             </li>
             <li class="single-card__text-line">
-              <span class="single-card__text-item single-card__text-item--bold">Rover Name: </span>
+              <span class="single-card__text-item single-card__text-item--bold">{{
+                $t('imageCard.roverStatus')
+              }}</span>
               <span class="single-card__text-item">{{
                 singleCardStore.singleCard.rover.name
               }}</span>
             </li>
             <li class="single-card__text-line">
               <span class="single-card__text-item single-card__text-item--bold"
-                >Rover Status:
+                >{{ $t('imageCard.roverStatus') }}
               </span>
               <span class="single-card__text-item">{{ roverStatusUpper }}</span>
             </li>
             <li class="single-card__text-line">
               <span class="single-card__text-item single-card__text-item--bold"
-                >Landing Date:
+                >{{ $t('imageCard.landDate') }}
               </span>
-              <span class="single-card__text-item">{{
-                singleCardStore.singleCard.rover.landing_date
-              }}</span>
+              <span class="single-card__text-item">{{ landingDate }}</span>
             </li>
             <li class="single-card__text-line">
-              <span class="single-card__text-item single-card__text-item--bold">Launch Date: </span>
-              <span class="single-card__text-item">{{
-                singleCardStore.singleCard.rover.launch_date
+              <span class="single-card__text-item single-card__text-item--bold">{{
+                $t('imageCard.launchDate')
               }}</span>
+              <span class="single-card__text-item">{{ launchDate }}</span>
             </li>
           </ul>
         </div>
@@ -74,6 +85,7 @@ import { useSingleCard } from '../stores/singleCard'
 import { onBeforeMount, onMounted } from 'vue'
 import { firstLetterToUpperCase } from '../composables/firstLetterToUpperCase.js'
 import { computed } from 'vue'
+import { changeDateFormat } from '../composables/dateFormat.js'
 
 export default {
   props: ['imageId'],
@@ -93,10 +105,21 @@ export default {
       firstLetterToUpperCase(singleCardStore.singleCard.rover.status)
     )
 
+    const earthDate = computed(() => changeDateFormat(singleCardStore.singleCard.earth_date))
+    const landingDate = computed(() =>
+      changeDateFormat(singleCardStore.singleCard.rover.landing_date)
+    )
+    const launchDate = computed(() =>
+      changeDateFormat(singleCardStore.singleCard.rover.launch_date)
+    )
+
     return {
       marsImagesStore,
       singleCardStore,
-      roverStatusUpper
+      roverStatusUpper,
+      earthDate,
+      landingDate,
+      launchDate
     }
   }
 }

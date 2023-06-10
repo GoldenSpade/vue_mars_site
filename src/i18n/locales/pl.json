@@ -1,0 +1,53 @@
+{
+  "locale": {
+    "en": "En",
+    "ru": "Ru",
+    "pl": "Pl",
+    "ua": "Ua",
+    "de": "De"
+  },
+  "header": {
+    "title": "Obrazy Marsa",
+    "subTitle": "Z łazika Curiosity"
+  },
+  "filter": {
+    "showFilters": {
+      "show": "Pokaż filtry",
+      "hide": "Ukryj filtry"
+    },
+    "filterBy": "Filtruj Obrazy według:",
+    "filterButton": "Znajdź obrazy"
+  },
+  "imageCard": {
+    "caption": "Możesz kliknąć obraz, aby wyświetlić go bardziej szczegółowo.",
+    "id": "Identyfikator obrazu:",
+    "camName": "Nazwa Kamery:",
+    "camFullName": "Pełna Nazwa Aparatu:",
+    "earthDate": "Data Ziemi:",
+    "roverName": "Nazwa Łazika:",
+    "roverStatus": "Status Łazika:",
+    "landDate": "Data lądowania:",
+    "launchDate": "Data Uruchomienia:"
+  },
+  "calendar": {
+    "cancelBtn": "Anuluj",
+    "selectBtn": "Wybierz"
+  },
+  "itemsAmount": {
+    "items": "Pozycje na stronie",
+    "total": "ogółem"
+  },
+  "footer": {
+    "text": "Kosmiczny Teleskop «Hubble'a» to projekt międzynarodowej współpracy między NASA i ESA. Aura 's Space Telescope Science Institute w Baltimore w stanie Maryland prowadzi operacje Naukowe «Hubble'a».",
+    "links-1": {
+      "about": "O Nas",
+      "glossary": "Słowniczek",
+      "copyright": "Prawa autorskie"
+    },
+    "links-2": {
+      "contacs": "Skontaktuj Się Z Nami",
+      "privacy": "Polityka Prywatności",
+      "sitemap": "Mapa strony"
+    }
+  }
+}

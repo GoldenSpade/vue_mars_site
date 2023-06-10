@@ -52,6 +52,11 @@
     border-bottom: solid 1px rgba(73, 94, 121, 0.3);
     padding: 5px 0;
   }
+  &__text-line--bold {
+    font-family: 'PoppinsBold', 'RobotoBold', sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+  }
   &__text-item {
     flex: 0 1 50%;
    

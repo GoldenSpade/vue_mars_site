@@ -1,0 +1,53 @@
+{
+  "locale": {
+    "en": "En",
+    "ru": "Ru",
+    "pl": "Pl",
+    "ua": "Ua",
+    "de": "De"
+  },
+  "header": {
+    "title": "Bilder vom Mars",
+    "subTitle": "Der Curiosity Rover"
+  },
+  "filter": {
+    "showFilters": {
+      "show": "Filter anzeigen",
+      "hide": "Filter ausblenden"
+    },
+    "filterBy": "Bilder filtern nach:",
+    "filterButton": "Bilder finden"
+  },
+  "imageCard": {
+    "caption": "Sie können auf das Bild klicken, um es detaillierter anzuzeigen.",
+    "id": "Bild-ID:",
+    "camName": "Kameraname:",
+    "camFullName": "Vollständiger Name der Kamera:",
+    "earthDate": "Erddaten:",
+    "roverName": "Name des Rovers:",
+    "roverStatus": "Rover-Status:",
+    "landDate": "Landedatum:",
+    "launchDate": "Starttermin:"
+  },
+  "calendar": {
+    "cancelBtn": "Stornieren",
+    "selectBtn": "Wählen"
+  },
+  "itemsAmount": {
+    "items": "Artikel pro Seite",
+    "total": "insgesamt"
+  },
+  "footer": {
+    "text": "Das NASA-Weltraumteleskop «Hubble» ist ein Projekt der internationalen Zusammenarbeit zwischen NASA und ESA. Auras Weltraumteleskop-Wissenschaftsinstitut in Baltimore, Maryland, führt «Hubble»-Wissenschaftsoperationen durch.",
+    "links-1": {
+      "about": "Über uns",
+      "glossary": "Glossar",
+      "copyright": "Urheberrecht"
+    },
+    "links-2": {
+      "contacs": "Kontaktieren Sie uns",
+      "privacy": "Datenschutzerklärung",
+      "sitemap": "Impressum _ Datenschutz"
+    }
+  }
+}

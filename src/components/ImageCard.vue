@@ -25,7 +25,7 @@
           <span class="image-card__text-item-content image-card__text-item-content--bold">{{
             $t('imageCard.earthDate')
           }}</span>
-          <span class="image-card__text-item-content">{{ imageItem.earth_date }}</span>
+          <span class="image-card__text-item-content">{{ earthDate }}</span>
         </p>
         <p class="image-card__text-item-row">
           <span class="image-card__text-item-content image-card__text-item-content--bold">{{
@@ -41,15 +41,16 @@
         </p>
         <p class="image-card__text-item-row">
           <span class="image-card__text-item-content image-card__text-item-content--bold">{{
-            $t('imageCard.roverLandDate')
+            $t('imageCard.landDate')
           }}</span>
-          <span class="image-card__text-item-content">{{ imageItem.rover.landing_date }}</span>
+          <span class="image-card__text-item-content">{{ landingDate }}</span>
         </p>
-        <!-- <p class="image-card__text-item-row">
-          <span class="image-card__text-item-content image-card__text-item-content--bold">
-            {{ $t('imageCard.raunchDate') }}</span>
-          <span class="image-card__text-item-content">{{ imageItem.rover.launch_date }}</span>
-        </p> -->
+        <p class="image-card__text-item-row">
+          <span class="image-card__text-item-content image-card__text-item-content--bold">{{
+            $t('imageCard.launchDate')
+          }}</span>
+          <span class="image-card__text-item-content">{{ launchDate }}</span>
+        </p>
       </div>
     </div>
 
@@ -64,6 +65,7 @@
 import { ref, computed } from 'vue'
 import BaseIcon from './BaseIcon.vue'
 import { firstLetterToUpperCase } from '../composables/firstLetterToUpperCase.js'
+import { changeDateFormat } from '../composables/dateFormat.js'
 
 export default {
   props: ['imageItem'],
@@ -74,9 +76,16 @@ export default {
 
     const roverStatusUpper = computed(() => firstLetterToUpperCase(props.imageItem.rover.status))
 
+    const earthDate = computed(() => changeDateFormat(props.imageItem.earth_date))
+    const landingDate = computed(() => changeDateFormat(props.imageItem.rover.landing_date))
+    const launchDate = computed(() => changeDateFormat(props.imageItem.rover.launch_date))
+
     return {
       isHovering,
-      roverStatusUpper
+      roverStatusUpper,
+      earthDate,
+      landingDate,
+      launchDate
     }
   }
 }

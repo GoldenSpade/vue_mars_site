@@ -12,6 +12,7 @@
       class="header__video"
       loop="loop"
       muted="muted"
+      autoplay="autoplay"
     ></video>
   </header>
 </template>
