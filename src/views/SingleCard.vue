@@ -86,6 +86,7 @@ import { onBeforeMount, onMounted } from 'vue'
 import { firstLetterToUpperCase } from '../composables/firstLetterToUpperCase.js'
 import { computed } from 'vue'
 import { changeDateFormat } from '../composables/dateFormat.js'
+import { scrollToTop } from '../composables/scrollToTop'
 
 export default {
   props: ['imageId'],
@@ -99,6 +100,7 @@ export default {
 
     onMounted(() => {
       marsImagesStore.canUseLoad = false
+      scrollToTop()
     })
 
     const roverStatusUpper = computed(() =>

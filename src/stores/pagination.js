@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { useMarsImages } from './marsImages'
 import { useAmountFilter } from './amountFilter'
+import { scrollToTop } from '../composables/scrollToTop'
 
 export const usePagination = defineStore('pagination', () => {
   const marsImagesStore = useMarsImages()
@@ -20,33 +21,33 @@ export const usePagination = defineStore('pagination', () => {
     currentPage.value = page
   }
 
-  const paginatedImages = computed(() =>
-    [...marsImagesStore.images].splice(fromIdx.value, itemsPerPage.value)
-  )
+  const paginatedImages = computed(() => {
+    scrollToTop()
+
+    return [...marsImagesStore.images].splice(fromIdx.value, itemsPerPage.value)
+  })
 
   // Filtered images pagination
 
-  const filteredItemsPerPage = computed(
-    () => amountFilterStore.currentItemPerPage
-  )
+  const filteredItemsPerPage = computed(() => amountFilterStore.currentItemPerPage)
   const filteredMaxPagesShown = ref(5) // amount of max pagination links
   const filteredCurrentPage = ref(1)
   // starter index for paginatedPosts
-  const filteredFromIdx = computed(
-    () => (currentPage.value - 1) * filteredItemsPerPage.value
-  )
+  const filteredFromIdx = computed(() => (currentPage.value - 1) * filteredItemsPerPage.value)
 
   // Paginate event page. Is equal to pagination item number (it's >= 1)
   const filteredOnClickHandler = page => {
     currentPage.value = page
   }
 
-  const filteredPaginatedImages = computed(() =>
-    [...marsImagesStore.filteredByCamNames].splice(
+  const filteredPaginatedImages = computed(() => {
+    scrollToTop()
+
+    return [...marsImagesStore.filteredByCamNames].splice(
       filteredFromIdx.value,
       filteredItemsPerPage.value
     )
-  )
+  })
 
   const filteredPaginatedImagesLength = computed(
     () => marsImagesStore.filteredByCamNames.length || 0

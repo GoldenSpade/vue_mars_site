@@ -1,6 +1,6 @@
 <template>
   <div class="scroll-to-top" :class="{ 'scroll-to-top--show': isVisible }">
-    <button class="scroll-to-top__btn" @click="scrollToTop">
+    <button class="scroll-to-top__btn" @click="scrollUp">
       <BaseIcon iconName="arrowUp" class="ico--ml-none" />
       <span class="scroll-to-top__text">TOP</span>
     </button>
@@ -10,6 +10,7 @@
 <script>
 import { ref, watchEffect } from 'vue'
 import BaseIcon from './BaseIcon.vue'
+import { scrollToTop } from '../composables/scrollToTop'
 
 export default {
   components: { BaseIcon },
@@ -31,15 +32,15 @@ export default {
       window.addEventListener('scroll', updateScrollY)
     })
 
-    const scrollToTop = () => {
-      window.scrollTo(0, 0)
+    const scrollUp = () => {
+     return scrollToTop()
     }
 
     return {
       isVisible,
       scrollY,
       updateScrollY,
-      scrollToTop
+      scrollUp
     }
   }
 }

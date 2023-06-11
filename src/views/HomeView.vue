@@ -42,10 +42,3 @@ export default {
   }
 }
 </script>
-
-<style>
-main {
-  font-size: 18px;
-  font-family: 'PoppinsRegular', sans-serif;
-}
-</style>

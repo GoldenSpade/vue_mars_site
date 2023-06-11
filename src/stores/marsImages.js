@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { loadImages } from '../composables/loadImages'
-
 import { useCalendarData } from './calendarData'
+import { scrollToTop } from '../composables/scrollToTop'
 
 export const useMarsImages = defineStore('marsImages', () => {
   const isLoad = ref(false)
@@ -35,12 +35,15 @@ export const useMarsImages = defineStore('marsImages', () => {
     } else {
       wasCamFilterUsed.value = false
     }
+
+    scrollToTop()
   }
 
   const load = async () => {
     images.value = []
     selectedCamName.value = 'Select Camera'
     wasCamFilterUsed.value = false
+    isLoad.value = 
 
     loadTimeCounter.value = 0
 
@@ -70,9 +73,8 @@ export const useMarsImages = defineStore('marsImages', () => {
       }
     } catch (err) {
       error.value = err
-      console.log(err.value);
+      console.log(error.value)
     }
-    
   }
 
   return {

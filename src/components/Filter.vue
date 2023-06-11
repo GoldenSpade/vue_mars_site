@@ -48,6 +48,7 @@ import Button from './Button.vue'
 import BaseIcon from './BaseIcon.vue'
 import SelectCamera from './SelectCamera.vue'
 import { useAmountFilter } from '../stores/amountFilter'
+import { scrollToTop } from '../composables/scrollToTop'
 
 export default {
   components: {
@@ -107,6 +108,7 @@ export default {
         showFilterBlock.value = false
       }
       await marsImagesStore.load()
+      scrollToTop()
     }
 
     return {
