@@ -1,4 +1,8 @@
 .main-content {
+  margin-bottom: 70px;
+  @media (max-width: 450px) {
+    margin-bottom: 40px;
+  }
   &__wrap {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));

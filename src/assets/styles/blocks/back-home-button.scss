@@ -1,0 +1,18 @@
+.back-home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  cursor: pointer;
+
+  &__caption {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'PoppinsRegular', 'RobotoRegular', sans-serif;
+    margin-left: 10px;
+  }
+
+  &--paddings {
+    padding: 25px 0;
+  }
+}

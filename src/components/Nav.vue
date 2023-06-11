@@ -6,9 +6,7 @@
     </div>
 
     <div class="nav__items">
-      <div class="nav__back" v-show="showBackButton" @click="goHome">
-        <BaseIcon iconName="arrowBack" /> <span class="nav__back-caption">Back</span>
-      </div>
+      <BackHome />
       <LanguageSwitcher />
     </div>
   </nav>
@@ -16,30 +14,12 @@
 
 <script>
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
-import { useRouter, useRoute } from 'vue-router'
-import { computed } from 'vue'
-import BaseIcon from './BaseIcon.vue'
+import BackHome from '@/components/BackHome.vue'
 
 export default {
   components: {
     LanguageSwitcher,
-    BaseIcon
-  },
-
-  setup () {
-    const router = useRouter()
-    const route = useRoute()
-
-    const goHome = () => router.push({ name: 'home' })
-
-    const showBackButton = computed(() => route.name === 'singleCard')
-
-    return {
-      router,
-      route,
-      goHome,
-      showBackButton
-    }
+    BackHome
   }
 }
 </script>

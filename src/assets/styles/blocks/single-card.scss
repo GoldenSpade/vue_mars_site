@@ -1,18 +1,23 @@
 .single-card {
   &__wrap {
-    padding: 70px 0;
+    padding-top: 60px;
     min-width: 100%;
     @media (max-width: 975px) {
-      padding: 40px 0;
+      padding-top: 40px;
     }
   }
   &__content {
     display: flex;
     flex-direction: column;
+  }
+  &__content-wrap {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     overflow: hidden;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
     border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
   }
   &__image {
     min-width: 100%;
@@ -59,8 +64,6 @@
   }
   &__text-item {
     flex: 0 1 50%;
-   
-
   }
   &__text-item--bold {
     font-family: 'PoppinsBold', 'RobotoBold', sans-serif;
