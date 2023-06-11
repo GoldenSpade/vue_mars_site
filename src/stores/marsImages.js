@@ -70,6 +70,7 @@ export const useMarsImages = defineStore('marsImages', () => {
       }
     } catch (err) {
       error.value = err
+      console.log(err.value);
     }
     
   }

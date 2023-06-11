@@ -45,7 +45,7 @@
             </li>
             <li class="single-card__text-line">
               <span class="single-card__text-item single-card__text-item--bold">{{
-                $t('imageCard.roverStatus')
+                $t('imageCard.roverName')
               }}</span>
               <span class="single-card__text-item">{{
                 singleCardStore.singleCard.rover.name
