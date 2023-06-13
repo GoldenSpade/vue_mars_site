@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { loadImages } from '../composables/loadImages'
+import { usePagination } from './pagination'
 import { useCalendarData } from './calendarData'
 import { scrollToTop } from '../composables/scrollToTop'
 
@@ -13,6 +14,7 @@ export const useMarsImages = defineStore('marsImages', () => {
   const error = ref(false)
 
   const calendarDataStore = useCalendarData()
+  const paginationStore = usePagination()
 
   const camNames = computed(() => {
     const names = images.value.map(elem => elem.camera.full_name || [])
@@ -37,15 +39,16 @@ export const useMarsImages = defineStore('marsImages', () => {
     }
 
     scrollToTop()
+    paginationStore.currentPage = 1
   }
 
   const load = async () => {
     images.value = []
     selectedCamName.value = 'Select Camera'
     wasCamFilterUsed.value = false
-    isLoad.value = 
-
     loadTimeCounter.value = 0
+    
+    paginationStore.currentPage = 1
 
     const dataLoadingTimer = setInterval(() => {
       loadTimeCounter.value++
@@ -85,6 +88,7 @@ export const useMarsImages = defineStore('marsImages', () => {
     imagesLength,
     error,
     calendarDataStore,
+    paginationStore,
     camNames,
     wasCamFilterUsed,
     selectedCamName,

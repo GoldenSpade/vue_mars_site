@@ -1,6 +1,6 @@
 <template>
   <div
-    class="back-home-button back-home-button--paddings"
+    class="back-home-button"
     v-show="showBackButton"
     @click="backHome"
   >

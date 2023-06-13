@@ -72,7 +72,7 @@
               </li>
             </ul>
           </div>
-          <BackHome />
+          <BackHome class="back-home-button--pt"/>
         </div>
       </div>
     </main>

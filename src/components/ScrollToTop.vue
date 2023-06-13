@@ -32,9 +32,7 @@ export default {
       window.addEventListener('scroll', updateScrollY)
     })
 
-    const scrollUp = () => {
-     return scrollToTop()
-    }
+    const scrollUp = () => scrollToTop()
 
     return {
       isVisible,
