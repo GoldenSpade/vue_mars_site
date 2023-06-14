@@ -1,7 +1,7 @@
 <template>
   <div class="image-card" @mouseover="isHovering = true" @mouseout="isHovering = false">
     <div class="image-card__wrap">
-      <img class="image-card__image" :src="imageItem.img_src" alt="Photo" />
+      <img class="image-card__image" :src="imageItem.img_src" alt="Photo" v-cloak />
       <div class="image-card__text">
         <p class="image-card__text-item-row">
           <span class="image-card__text-item-content image-card__text-item-content--bold"
@@ -90,3 +90,9 @@ export default {
   }
 }
 </script>
+
+<style>
+[v-cloak] {
+  display: none;
+}
+</style>

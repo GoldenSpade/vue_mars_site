@@ -1,4 +1,4 @@
-# [MarsSite](https://billizane.github.io/vue-awesome-paginate) #
+# [MarsSite](https://billizane.github.io/vue_mars_site) #
 
 Did you know that NASA puts photos of space :alien: and Mars in the public domain almost every day?
 
