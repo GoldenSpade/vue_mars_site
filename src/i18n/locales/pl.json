@@ -49,5 +49,6 @@
       "privacy": "Polityka Prywatności",
       "sitemap": "Mapa strony"
     }
-  }
+  },
+  "noDataMessage": "Przepraszam. Brak zdjęć na tę datę. Wybierz inną datę. Mniej niż ten, który określiłeś. I kliknij przycisk Znajdź obrazy."
 }

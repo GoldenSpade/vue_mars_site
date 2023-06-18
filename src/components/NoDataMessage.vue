@@ -5,9 +5,6 @@
       alt=""
       class="no-data-message__img"
     />
-    <p class="no-data-message__text">
-      Sorry. There are no images for this date. Choose a different date. Less
-      than the one you specified. And click on Find Images button.
-    </p>
+    <p class="no-data-message__text">{{ $t('noDataMessage') }}</p>
   </div>
 </template>
