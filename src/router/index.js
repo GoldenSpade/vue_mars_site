@@ -23,7 +23,7 @@ const router = createRouter({
           component: About
         },
         {
-          path: '/vue_mars_site/images/id/:imageId',
+          path: '/vue_mars_site/images/:imageId',
           name: 'singleCard',
           component: SingleCard,
           props: true
