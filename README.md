@@ -1,4 +1,4 @@
-# [MarsSite](https://billizane.github.io/vue_mars_site) #
+# [MarsSite](https://GoldenSpade.github.io/vue_mars_site) #
 
 Did you know that NASA puts photos of space :alien: and Mars in the public domain almost every day?
 
@@ -45,4 +45,4 @@ Attention. :fire: When the site is loaded for the first time and when the main p
 * npm 9.7.1 :zap:
 * Vite 4.0.0 :zap:
 
-### [Watch the demo](https://billizane.github.io/vue_mars_site) ###
+### [Watch the demo](https://GoldenSpade.github.io/vue_mars_site) ###
