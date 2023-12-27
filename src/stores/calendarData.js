@@ -21,7 +21,7 @@ export const useCalendarData = defineStore('calendarData', () => {
   const dateLessThanTreeDays = computed(() => {
     let result = new Date(date.value)
     
-    result.setDate(result.getDate() - 3)
+    result.setDate(result.getDate() - 7)
 
     const day = result.getDate()
     const month = result.getMonth() + 1
