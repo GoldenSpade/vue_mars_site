@@ -25,6 +25,7 @@
             :locale="calendarDataStore.calendarLocale"
             :selectText="$t('calendar.selectBtn')"
             :cancelText="$t('calendar.cancelBtn')"
+            :disabled-dates="calendarDataStore.disabledDates"
           />
 
           <SelectCamera />

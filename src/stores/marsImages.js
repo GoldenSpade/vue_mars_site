@@ -31,6 +31,7 @@ export const useMarsImages = defineStore('marsImages', () => {
   const filterByCamName = currentCamName => {
     selectedCamName.value = currentCamName
     filteredByCamNames.value = images.value.filter(elem => elem.camera.full_name === currentCamName)
+    paginationStore.filteredCurrentPage = 1
 
     if (selectedCamName.value !== 'Select Camera') {
       wasCamFilterUsed.value = true
@@ -47,7 +48,7 @@ export const useMarsImages = defineStore('marsImages', () => {
     selectedCamName.value = 'Select Camera'
     wasCamFilterUsed.value = false
     loadTimeCounter.value = 0
-    
+
     paginationStore.currentPage = 1
 
     const dataLoadingTimer = setInterval(() => {
