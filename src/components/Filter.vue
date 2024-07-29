@@ -1,5 +1,5 @@
 <template>
-  <div class="filter" ref="div">
+  <div class="filter">
     <div class="container">
       <div class="filter__button-wrap" v-show="showFilterBtn">
         <Button
@@ -25,9 +25,9 @@
             :locale="calendarDataStore.calendarLocale"
             :selectText="$t('calendar.selectBtn')"
             :cancelText="$t('calendar.cancelBtn')"
-            :disabled-dates="calendarDataStore.disabledDates"
+            :min-date="calendarDataStore.minDate"
+            :max-date="calendarDataStore.maxDate"
           />
-
           <SelectCamera />
         </form>
         <div class="filter__item filter__item--mb-none">
@@ -59,7 +59,6 @@ export default {
     SelectCamera
   },
   setup () {
-    const div = ref(null)
     const showFilterBtn = ref(false)
     const showFilterBlock = ref(true)
     const windowWidth = ref(0)
@@ -113,7 +112,6 @@ export default {
     }
 
     return {
-      div,
       showFilterBtn,
       showFilterBlock,
       windowWidth,
